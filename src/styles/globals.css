@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.header  {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav{
+  display: flex;
+  padding: 16px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgray;
+}
+
+.nav-menu-list{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 60px;
+  width: 288px;
+  right: 0;
+
+}
+
+.nav__Link{
+  
+  font-size: 18px;
+  position: relative;
+
+}
+
+.nav__Link::before{
+  content: "";
+  position: absolute;
+  width: 0%;
+  bottom: -16px;
+  left: 0;
+  height: 6px;
+  transition: all 0.2s;
+  background-color: blue;
+}
+
+.nav__Link:hover::before{
+width: 100%;
+}
+
+@media screen and (mid-width: 768px){
+  .nav-menu-list{
+      flex-direction: row;
+      column-gap: 24px;
+      align-items: center;
+  }
+}
